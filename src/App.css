@@ -1,9 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap'); */
+
+@font-face {
+  font-family: 'Spotify';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Spotify'), url('./assets/fonts/CircularStd-Black.otf') format('truetype');
+}
+@font-face {
+  font-family: 'Spotify';
+  font-style: bold;
+  font-weight: bold;
+  src: local('Spotify'), url('./assets/fonts/CircularStd-Bold.otf') format('truetype');
+}
+
+
 
 html{
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', 'sans-serife';
+  font-family: 'Spotify', 'sans-serif';
+}
+
+span{
+  font-family: 'Spotify', 'sans-serif';
+}
+
+button{
+  font-family: 'Spotify', 'sans-serif';
 }
 
 body{
@@ -12,16 +35,13 @@ body{
   overflow: hidden;
   box-sizing: border-box;
   display: flex;
+  width: 100%;
+   font-family: 'Spotify', 'sans-serif';
 }
 
 h1, h2, h3, h5, h6, span{
   margin: 0;
   padding: 0;
-}
-
-.page{
-  width: 100%;
-  display: flex;
 }
 
 div{
@@ -30,5 +50,10 @@ div{
 
 .page{
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 241px;
+  padding-bottom: 90px;
+  position: absolute;
 }
 
