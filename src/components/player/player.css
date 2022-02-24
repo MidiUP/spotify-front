@@ -1,0 +1,152 @@
+.player{
+  width: 100%;
+  height: 90px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #181818;
+  box-shadow: 5px 0 ;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.musica-atual{
+  display: flex;
+  align-items: center;
+}
+.musica-atual img{
+  width: 56px;
+  height: 56px;
+  margin-right: 15px;
+}
+
+.info-musica h3{
+  color: #FFFFFF;
+  font-size: .9em;
+  font-weight: bold;
+  margin-bottom: -3px;
+}
+
+.info-musica span{
+  color: #B3B3B3;
+  font-size: .7em;
+  font-weight: lighter;
+  margin-top: -2px;
+}
+
+.icons-info-musica{
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+
+}
+
+#coracao{
+  width: 16px;
+}
+#fixar{
+  width: 17px;
+  height: 17px;
+}
+
+.gerenciar-player{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+
+.controle-musicas{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.duracao-musica{
+  display: flex;
+  flex-direction: row;
+}
+
+.botoes-secundarios, .botoes-primarios{
+  background-color: transparent;
+  border: none;
+  
+}
+
+.botoes-secundarios{
+  margin: 0 10px;
+}
+
+.botoes-primarios{
+  margin: 0 3px;
+}
+
+.botao-play{
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 32px;
+  width: 32px;
+  height: 32px;
+  margin: 0 15px;
+}
+
+.botoes-secundarios img{
+  width: 16px;
+  height: 16px;
+}
+
+.duracao-musica {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.duracao-musica span{
+  color: #B3B3B3;
+  font-size: .65em;
+}
+
+.duracao-total-musica{
+  width: 85%;
+  min-width: 190px;
+  height: 4px;
+  background-color: #535353;
+  border-radius: 2px;
+  margin: 10px 8px;
+  overflow: hidden;
+}
+
+.duracao-atual-musica{
+  width: 40%;
+  height: 20px;
+  background-color: #B3B3B3;
+}
+
+.mais-opcoes{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  align-items: center;
+}
+
+.mais-opcoes img{
+  margin: 0 8px;
+  width: 16px;
+}
+
+.volume{
+  overflow: hidden;
+  width: 93px;
+  height: 4px;
+  background-color: #535353;
+}
+
+.volume-atual{
+  height: 20px;
+  width: 30%;
+  background-color: #B3B3B3;
+}

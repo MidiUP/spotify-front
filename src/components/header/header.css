@@ -1,0 +1,92 @@
+.header{
+  width: 241px;
+  height: 100vh;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+}
+
+#logo{
+  width: 131px;
+  margin-bottom: 30px;
+}
+
+.menu{
+  margin-bottom: 25px;
+}
+
+.item-menu{
+  display: flex;
+  align-items: center;
+}
+
+.item-menu{
+  margin-bottom: 15px;
+}
+
+.item-menu span{
+  font-size: 0.85em;
+  margin-left: 15px;
+}
+
+.item-menu img{
+  width: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.icon-more{
+  width: 25px;
+  height: 25px;
+  background-color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .75;
+}
+
+.icon-more img{
+  width: 50%;
+}
+
+.divisao{
+  height: 1px;
+  width: 100%;
+  background-color: #FFF;
+  opacity: .20;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.download{
+  margin-top: auto;
+  padding-bottom: 77px;
+  display: flex;
+  align-items: center;
+}
+
+.download img{
+  width: 22px;
+  height: 22px;
+}
+
+.instalar{
+  color: #FFF;
+  font-size: .85em;
+  color: #b3b3b3;
+  font-weight: bold;
+  margin-left: 22px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+
+}
+

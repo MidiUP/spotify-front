@@ -1,0 +1,9 @@
+.content{
+  height: 100vh;
+  width: 100000000px;
+  background-color: #202020;
+}
+
+.page{
+  display: flex;
+}
