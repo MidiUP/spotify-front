@@ -1,0 +1,88 @@
+
+
+.card-musica{
+  width: 182px;
+  height: 260px;
+  background-color: #181818;
+  --variavel: 50%;
+  transition: background-color .3s ease;
+  padding: 16px;
+  border-radius: 7px;
+  margin-right: 25px;
+  position: relative;
+}
+
+.card-musica:hover{
+  background-color: #282828;
+}
+
+.imagem-album{
+  width: 100%;
+  position: relative;
+}
+
+.card-musica:hover .card-musica-play{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.imagem-album img{
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card-musica-play{
+  background-color: #1FDF64;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition:  .3s ease ;
+  transition-property: transform, opacity;
+ 
+}
+
+.card-musica-play:hover{
+ width: 50px;
+ height: 50px;
+ bottom: 14px;
+ right: 9px;
+}
+
+.card-musica-play img{
+  width: 20px;
+  height: 20px;
+}
+
+.card-musica h6{
+  color: #FFF;
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+.card-musica span{
+  color: #B3B3B3;
+  font-size: .8rem;
+  font-weight: 300;
+}
+
+@keyframes intro-play {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+

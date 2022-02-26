@@ -24,7 +24,7 @@ export default function HeaderHome() {
           <div className='icon-user'>
             <img src={user} />
           </div>
-          <span>Mateus</span>
+          <h6>Mateus</h6>
           <img src={setaMore} style={ { paddingRight: '5px'} } />
         </button>
       </div>
