@@ -127,9 +127,10 @@
 
 .duracao-atual-musica{
   width: 40%;
-  height: 20px;
+  height: 4px;
   background-color: #B3B3B3;
 }
+
 
 .mais-opcoes{
   display: flex;
@@ -144,14 +145,39 @@
 }
 
 .volume{
-  overflow: hidden;
   width: 93px;
   height: 4px;
   background-color: #535353;
 }
 
-.volume-atual{
-  height: 20px;
-  width: 30%;
-  background-color: #B3B3B3;
+.volume:hover .volume-atual{
+  background-color: #1FDF64;
 }
+
+.volume:hover .volume-atual::after{
+  height: 12px;
+  width: 12px;
+}
+
+.volume-atual{
+  height: 4px;
+  width: 10%;
+  background-color: #B3B3B3;
+  display: flex;
+  justify-content: end;
+  position: relative;
+}
+
+
+.volume-atual::after{
+  height: 0px;
+  width: 0px;
+  content: "";
+  position: relative;
+  left: 4px;
+  bottom: 3px;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  z-index: 99;
+}
+

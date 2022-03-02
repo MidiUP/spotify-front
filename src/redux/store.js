@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
-import { musicaAtual } from './modules/player/reducer'
+import  rootReducer from './modules/rootReducer'
 
-const store = createStore(musicaAtual)
+const store = createStore(rootReducer)
 
 export default store
