@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { VolumeBar } from './syles'
+import { VolumeBar, MusicBar } from './syles'
 
 import './player.css'
 import capa from '../../assets/images/capa-enemy.jpg'
@@ -29,19 +29,29 @@ export default function Player() {
   const [timeTotalMusic, setTimeTotalMusic] = useState('0:00')
 
   const [widthPreenchimentoVolume, setWidthPreenchimentoVolume] = useState(50)
+  const [widthPreenchimentoMusicPlayer, setWidthPreenchimentoMusicPlayer] = useState(0)
+  const [changingMusic, setChangingMusic] = useState(false)
+
+
+  const timeupdate = () => {
+    let minutes = Math.floor(musicaAtual[0].audio.currentTime / 60);
+    let seconds = musicaAtual[0].audio.currentTime - minutes * 60;
+    setCurrentTimeMusic(moment({ m: minutes, s: seconds }).format('m:ss'))
+    let percentage = musicaAtual[0].audio.currentTime / musicaAtual[0].audio.duration * 100
+    setWidthPreenchimentoMusicPlayer(percentage)
+  }
 
   useEffect(() => {
     if (musicaAtual[0]) {
-      musicaAtual[0].audio.ontimeupdate = function () {
-        let minutes = Math.floor(musicaAtual[0].audio.currentTime / 60);
-        var seconds = musicaAtual[0].audio.currentTime - minutes * 60;
-        setCurrentTimeMusic(moment({ m: minutes, s: seconds }).format('m:ss'))
-      }
-      let minutes = Math.floor(musicaAtual[0].audio.duration / 60);
-      var seconds = musicaAtual[0].audio.duration - minutes * 60;
-      setTimeTotalMusic(moment({ m: minutes, s: seconds }).format('m:ss'))
+      musicaAtual[0].audio.ontimeupdate = timeupdate
+      setTimeout(() => {
+        let minutes = Math.floor(musicaAtual[0].audio.duration / 60);
+        let seconds = musicaAtual[0].audio.duration - minutes * 60;
+        setTimeTotalMusic(moment({ m: minutes, s: seconds }).format('m:ss'))
+      }, 100)
     }
   }, [musicaAtual[0]])
+
 
   const changePlay = () => {
     ChangeStateMusic(musicaAtual[0])
@@ -50,13 +60,6 @@ export default function Player() {
     })
   }
 
-  const calcMinutesSeconds = (duration) => {
-    console.log(duration);
-    let minutes = Math.floor(duration / 60);
-    var seconds = duration - minutes * 60;
-    // return setTimeTotalMusic(moment({ m: minutes, s: seconds }).format('m:ss'))
-    return setTimeTotalMusic(moment({ m: '10', s: '25' }).format('m:ss'))
-  }
 
   const changeVolume = (e) => {
     setWidthPreenchimentoVolume(e.target.value)
@@ -67,6 +70,28 @@ export default function Player() {
       volume: volumeMusica
     })
   }
+
+  const changeMusicPlayer = (e) => {
+    let minutes = Math.floor(musicaAtual[0].audio.duration * e.target.value / 100 / 60);
+    let seconds = (musicaAtual[0].audio.duration * e.target.value / 100) - minutes * 60;
+    setCurrentTimeMusic(moment({ m: minutes, s: seconds }).format('m:ss'))
+    setWidthPreenchimentoMusicPlayer(e.target.value)
+    let tempo = musicaAtual[0].audio.duration * e.target.value / 100
+    //musicaAtual[0].audio.currentTime = tempo
+  }
+
+  const clickMusicPlayer = (e) => {
+    let tempo = musicaAtual[0].audio.duration * e.target.value / 100
+    musicaAtual[0].audio.currentTime = tempo
+    musicaAtual[0].audio.ontimeupdate = timeupdate
+  }
+
+  const mouseDownMusicPlayer = (e) => {
+    musicaAtual[0].audio.ontimeupdate = function () {}
+  }
+
+
+
   return (
     <div className='player'>
       <div className='musica-atual'>
@@ -112,10 +137,8 @@ export default function Player() {
 
         <div className='duracao-musica'>
           <span>{currentTimeMusic}</span>
-          <div className='duracao-total-musica'>
-            <div className='duracao-atual-musica'></div>
-          </div>
-          <span>{ musicaAtual[0] ? musicaAtual[0].audio.duration : '0:00' }</span>
+          <MusicBar type='range' widthPreenchimento={widthPreenchimentoMusicPlayer} onChange={changeMusicPlayer} onClick={clickMusicPlayer} onMouseDown={mouseDownMusicPlayer} value={widthPreenchimentoMusicPlayer} />
+          <span>{timeTotalMusic ? timeTotalMusic : '0:00'}</span>
 
         </div>
 
@@ -126,7 +149,7 @@ export default function Player() {
         <img src={fila} />
         <img src={som} />
         <img src={volume} />
-        <VolumeBar type='range' onChange={changeVolume} widthPreenchimento={widthPreenchimentoVolume} >
+        <VolumeBar type='range' onChange={changeVolume} widthPreenchimento={widthPreenchimentoVolume}>
         </VolumeBar>
         {/* <div className='volume' onMouseMove={(e)=> console.log(e)}>
           <div className='volume-atual'></div>

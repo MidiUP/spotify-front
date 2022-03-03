@@ -16,6 +16,7 @@
 .musica-atual{
   display: flex;
   align-items: center;
+  width: 25%;
 }
 .musica-atual img{
   width: 56px;
@@ -64,11 +65,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .duracao-musica{
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .botoes-secundarios, .botoes-primarios{
@@ -88,9 +91,9 @@
 .botao-play{
   background-color: #FFFFFF;
   border: none;
-  border-radius: 32px;
-  width: 32px;
-  height: 32px;
+  border-radius: 35px;
+  width: 35px;
+  height: 35px;
   margin: 0 15px;
   display: flex;
   align-items: center;
@@ -135,8 +138,9 @@
 .mais-opcoes{
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  justify-content: flex-end;
   align-items: center;
+  width: 25%;
 }
 
 .mais-opcoes img{
