@@ -14,7 +14,10 @@ import pause from '../../assets/images/pause.svg'
 import mic from '../../assets/images/mic.svg'
 import fila from '../../assets/images/fila.svg'
 import som from '../../assets/images/som.svg'
-import volume from '../../assets/images/volume.svg'
+import volumeMax from '../../assets/images/volume.svg'
+import volume1 from '../../assets/images/volume1.svg'
+import volumeMin from '../../assets/images/volumeMin.svg'
+import volumeMudo from '../../assets/images/volumeMudo.svg'
 
 import * as moment from 'moment'
 
@@ -30,6 +33,7 @@ export default function Player() {
 
   const [widthPreenchimentoVolume, setWidthPreenchimentoVolume] = useState(50)
   const [widthPreenchimentoMusicPlayer, setWidthPreenchimentoMusicPlayer] = useState(0)
+  const [volume, setVolume] = useState(50)
   const [changingMusic, setChangingMusic] = useState(false)
 
 
@@ -65,6 +69,7 @@ export default function Player() {
     setWidthPreenchimentoVolume(e.target.value)
     const volumeMusica = e.target.value / 100
     musicaAtual[0].audio.volume = e.target.value / 100
+    setVolume(e.target.value)
     dispatch({
       type: 'SET_VOLUME',
       volume: volumeMusica
@@ -87,7 +92,27 @@ export default function Player() {
   }
 
   const mouseDownMusicPlayer = (e) => {
-    musicaAtual[0].audio.ontimeupdate = function () {}
+    musicaAtual[0].audio.ontimeupdate = function () { }
+  }
+
+  const muteVolume = () => {
+    if (widthPreenchimentoVolume === 0) {
+      setWidthPreenchimentoVolume(volume)
+      const volumeMusica = volume / 100
+      musicaAtual[0].audio.volume = volume / 100
+      dispatch({
+        type: 'SET_VOLUME',
+        volume: volumeMusica
+      })
+    }else{
+      setWidthPreenchimentoVolume(0)
+      const volumeMusica = 0
+      musicaAtual[0].audio.volume = 0
+      dispatch({
+        type: 'SET_VOLUME',
+        volume: volumeMusica
+      })
+    }
   }
 
 
@@ -148,7 +173,10 @@ export default function Player() {
         <img src={mic} />
         <img src={fila} />
         <img src={som} />
-        <img src={volume} />
+        {widthPreenchimentoVolume >= 75 && <img src={volumeMax} onClick={muteVolume} />}
+        {widthPreenchimentoVolume >= 30 && widthPreenchimentoVolume < 75 && <img src={volume1} onClick={muteVolume} />}
+        {widthPreenchimentoVolume < 30 && widthPreenchimentoVolume >= 1 && <img src={volumeMin} onClick={muteVolume} />}
+        {widthPreenchimentoVolume < 1 && <img src={volumeMudo} onClick={muteVolume} />}
         <VolumeBar type='range' onChange={changeVolume} widthPreenchimento={widthPreenchimentoVolume}>
         </VolumeBar>
         {/* <div className='volume' onMouseMove={(e)=> console.log(e)}>

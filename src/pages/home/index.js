@@ -21,7 +21,7 @@ export default function Home() {
   useEffect(() => {
     dispatch({
       type: 'POPULAR_MUSIC',
-      musica: Object.assign({ capa: enemy, nomeMusica: 'Enemy', cantor: 'Imagine Dragons', audio: new Audio(enemy_music) })
+      musica: Object.assign({ capa: enemy, nomeMusica: 'Enemy', cantor: 'Imagine Dragons', audio: new Audio(enemy_music), id: 0 })
     })
   }, [])
 
@@ -38,31 +38,31 @@ export default function Home() {
           <div className='row-categoria'>
             <h1>Tocado recentemente</h1>
             <div className='musicas'>
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Enemy' cantor='Imagine Dragons' capa={enemy} musica={enemy_music} />
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Amor e Fé' cantor='Hungria Hip Hop' capa={hungria} musica={enemy_music} />
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Enemy' cantor='Imagine Dragons' capa={enemy} musica={enemy_music} id={1} />
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Amor e Fé' cantor='Hungria Hip Hop' capa={hungria} musica={enemy_music} id={2} />
             </div>
           </div>
 
           <div className='row-categoria' style={{ marginTop: '15px' }}>
             <h1 style={{ marginBottom: "-8px", fontSize: "1.5em" }}>Programas para conhecer</h1>
             <div className='musicas'>
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Flow Podcast' cantor='Flow Podcast' capa={flow} musica={enemy_music} />
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Podpah' cantor='Podpah' capa={podpah} musica={enemy_music} />
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Flow Podcast' cantor='Flow Podcast' capa={flow} musica={enemy_music} />
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Podpah' cantor='Podpah' capa={podpah} musica={enemy_music} />
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Flow Podcast' cantor='Flow Podcast' capa={flow} musica={enemy_music} />
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Podpah' cantor='Podpah' capa={podpah} musica={enemy_music} />
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Flow Podcast' cantor='Flow Podcast' capa={flow} musica={enemy_music} id={3}/>
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Podpah' cantor='Podpah' capa={podpah} musica={enemy_music} id={4}/>
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Flow Podcast' cantor='Flow Podcast' capa={flow} musica={enemy_music} id={5} />
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Podpah' cantor='Podpah' capa={podpah} musica={enemy_music} id={7}/>
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Flow Podcast' cantor='Flow Podcast' capa={flow} musica={enemy_music} id={8} />
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Podpah' cantor='Podpah' capa={podpah} musica={enemy_music} id={9}/>
             </div>
           </div>
 
           <div className='row-categoria' style={{ marginTop: '15px' }}>
             <h1 style={{ marginBottom: "-8px", fontSize: "1.5em" }}>Por onde começar</h1>
             <div className='musicas'>
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Flow Podcast' cantor='Flow Podcast' capa={flow} musica={enemy_music}/>
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Enemy' cantor='Imagine Dragons' capa={enemy} musica={enemy_music}/>
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Amor e Fé' cantor='Hungria Hip Hop' capa={hungria} musica={enemy_music}/>
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Flow Podcast' cantor='Flow Podcast' capa={flow} musica={enemy_music}/>
-              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Podpah' cantor='Podpah' capa={podpah} musica={enemy_music}/>
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Flow Podcast' cantor='Flow Podcast' capa={flow} musica={enemy_music} id={10}/>
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Enemy' cantor='Imagine Dragons' capa={enemy} musica={enemy_music} id={11}/>
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Amor e Fé' cantor='Hungria Hip Hop' capa={hungria} musica={enemy_music} id={12}/>
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Flow Podcast' cantor='Flow Podcast' capa={flow} musica={enemy_music} id={13}/>
+              <CardMusica style={{ marginTop: '25px' }} nomeMusica='Podpah' cantor='Podpah' capa={podpah} musica={enemy_music} id={14}/>
             </div>
           </div>
 
